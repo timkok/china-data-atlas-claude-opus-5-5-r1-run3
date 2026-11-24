@@ -14,7 +14,7 @@
 ## Licensing / redistribution
 - Data authenticity: verified as described. Legal access: public pages/endpoints, no login, no captcha, rate-limited.
 - Redistribution: no explicit open-data licence was found for the NBS database. Statistical values are shown with attribution for research/citation; **status = pending review**. Yearbook images (© 中国统计出版社) and copies of web pages are kept only as local evidence (excluded from git and the public site; included in the private Drive delivery as evidence).
-- The GitHub repository is private for this reason; the site is public.
+- The GitHub repository was made public at the user's request (2026-11-24). It contains the derived dataset and raw NBS API responses (official statistics with attribution) but no yearbook images or copied web pages. Redistribution status remains pending review.
 
 ## Product
 - No geographic map (compliance; see methodology). No English UI yet (data fields are bilingual). No scatter/cross-indicator chart or PNG/SVG export yet.

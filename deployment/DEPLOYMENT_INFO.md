@@ -8,7 +8,7 @@
 | Other auto alias | https://china-data-atlas-claude-opus-5-5-r1.vercel.app (assigned by Vercel to this project) |
 | Current deployment | https://china-data-atlas-claude-opus-5-5-r1-run3-cb0n81c24.vercel.app (target: production of the new project) |
 | Preview deployment | https://china-data-atlas-claude-opus-5-5-r1-run3-2uz6shdnv.vercel.app — protected by Vercel Authentication (anonymous → HTTP 302 to login). Not usable by reviewers without a Vercel login. |
-| GitHub | https://github.com/timkok/china-data-atlas-claude-opus-5-5-r1-run3 (private) · PR https://github.com/timkok/china-data-atlas-claude-opus-5-5-r1-run3/pull/1 (branch `r1/dev` → `main`) |
+| GitHub | https://github.com/timkok/china-data-atlas-claude-opus-5-5-r1-run3 (public) · PR https://github.com/timkok/china-data-atlas-claude-opus-5-5-r1-run3/pull/1 (branch `r1/dev` → `main`) |
 
 ## How it was deployed
 ```bash

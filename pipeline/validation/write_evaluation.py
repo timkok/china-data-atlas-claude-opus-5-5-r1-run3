@@ -40,7 +40,7 @@ ev = {
  "map_status": "not_implemented_by_design: no boundary data with confirmed 审图号/licence for interactive choropleth; replaced by ranked bars, ranking tables and a labelled non-geographic 7-region matrix",
  "redistribution_status": "pending_review: official NBS statistics shown with attribution; no explicit open-data licence found; yearbook images and page copies not redistributed publicly",
  "deployment_status": "deployed: new independent Vercel project china-data-atlas-claude-opus-5-5-r1-run3 (first CLI deploy became the new project's production; preview deployments exist but are behind Vercel Authentication)",
- "github_url": "https://github.com/timkok/china-data-atlas-claude-opus-5-5-r1-run3 (private)",
+ "github_url": "https://github.com/timkok/china-data-atlas-claude-opus-5-5-r1-run3 (public)",
  "pull_request_url": "https://github.com/timkok/china-data-atlas-claude-opus-5-5-r1-run3/pull/1",
  "preview_url": "https://china-data-atlas-claude-opus-5-5-r1-run3.vercel.app",
  "drive_folder_url": "https://drive.google.com/drive/folders/1vGwrABTN7SaRX31Fet0A8ekE6MmTPUfd",
@@ -52,7 +52,7 @@ ev = {
    "Physicians per 1000 uses current revised population; Yearbook values for <=2020 differ by 0.01-0.03",
    "No geographic map; no English UI; no PNG/SVG export or scatter plot yet",
    "Mainland China network access and WeChat browser not verified",
-   "Redistribution licence not confirmed (pending review); GitHub repo kept private"]}
+   "Redistribution licence not confirmed (pending review); GitHub repo is public (made public at the user's request) while redistribution status remains pending review"]}
 json.dump(ev, open(P("EVALUATION.json"), "w"), ensure_ascii=False, indent=1)
 print(json.dumps({k: ev[k] for k in ("core_indicators_available","core_indicators_verified","unique_valid_observations","verified_observations","tests_passed","tests_failed","tests_not_run","acceptance_tasks_passed")}, ensure_ascii=False))
 print(dict(yes))

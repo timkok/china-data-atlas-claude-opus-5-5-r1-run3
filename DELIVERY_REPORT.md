@@ -7,7 +7,7 @@
 | | URL |
 |---|---|
 | Google Drive folder | https://drive.google.com/drive/folders/1vGwrABTN7SaRX31Fet0A8ekE6MmTPUfd |
-| GitHub repository (private) | https://github.com/timkok/china-data-atlas-claude-opus-5-5-r1-run3 |
+| GitHub repository (public) | https://github.com/timkok/china-data-atlas-claude-opus-5-5-r1-run3 |
 | Pull request | https://github.com/timkok/china-data-atlas-claude-opus-5-5-r1-run3/pull/1 |
 | Live site (public, tested) | https://china-data-atlas-claude-opus-5-5-r1-run3.vercel.app |
 | Vercel preview (login-protected) | https://china-data-atlas-claude-opus-5-5-r1-run3-2uz6shdnv.vercel.app |
@@ -73,7 +73,7 @@ Covers the 20 required checks (home, search, direct URL, year switch, province s
 No geographic map. No boundary dataset with a confirmed 审图号 and licence for interactive recolouring was found; unverified GeoJSON was not used. Replacement: ranked bars, ranking tables and a 7-region tile matrix labelled as non-geographic.
 
 ## 15. Redistribution
-Authenticity: verified. Legal access: yes (public pages/endpoints, no login/captcha bypass, ≥1.2 s rate limit, cache; legacy API 403 and Henan bureau 403 not circumvented). Redistribution licence: **not confirmed → pending review**. Site shows statistics with attribution; yearbook images and page copies are not in git or on the site (private Drive evidence only). GitHub repo private.
+Authenticity: verified. Legal access: yes (public pages/endpoints, no login/captcha bypass, ≥1.2 s rate limit, cache; legacy API 403 and Henan bureau 403 not circumvented). Redistribution licence: **not confirmed → pending review**. Site shows statistics with attribution; yearbook images and page copies are not in git or on the site (private Drive evidence only). GitHub repo made public at the user's request (2026-11-24); it contains the derived dataset and raw NBS API responses, but no yearbook images or copied web pages.
 
 ## 16. Architecture, dependencies, how to run
 See [ARCHITECTURE.md](ARCHITECTURE.md) and [README.md](README.md). Python stdlib pipeline (+duckdb, pytest), Next.js 16 static export, ECharts 5, Tailwind 4, Playwright 1.60.

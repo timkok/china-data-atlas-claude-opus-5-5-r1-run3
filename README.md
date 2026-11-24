@@ -7,7 +7,7 @@ A real, traceable statistics product for mainland China's 31 provincial-level re
 National Bureau of Statistics (NBS) table, independently spot-checked against other official publications.
 
 - Live site: https://china-data-atlas-claude-opus-5-5-r1-run3.vercel.app (also https://china-data-atlas-claude-opus-5-5-r1.vercel.app)
-- Repository (private): https://github.com/timkok/china-data-atlas-claude-opus-5-5-r1-run3
+- Repository (public): https://github.com/timkok/china-data-atlas-claude-opus-5-5-r1-run3
 - Delivery report: [DELIVERY_REPORT.md](DELIVERY_REPORT.md) · Limitations: [LIMITATIONS.md](LIMITATIONS.md) · Architecture: [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ## Layout
