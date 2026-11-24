@@ -1,0 +1,11 @@
+{
+ "task": "D",
+ "environment": "local static build",
+ "result": "Pass",
+ "steps": "搜索/打开“人均地区生产总值（现价）”→概览显示最新省级年份2025、现价与初步核算提示→排名表",
+ "clicks": 1,
+ "data_year": "2025（初步核算）",
+ "verification": "2025年值为初步核算；2024年值为最终核实数（与年鉴2025初步数的差异已记录为 revised）",
+ "evidence": "screenshots/acceptance-D.png",
+ "failure_reason": ""
+}

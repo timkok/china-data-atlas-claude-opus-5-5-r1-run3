@@ -1,0 +1,11 @@
+{
+ "task": "H",
+ "environment": "local static build",
+ "result": "Pass",
+ "steps": "390px 手机视口（Pixel 7 模拟，Chromium）：顶部搜索“出生”→进入出生率页→年份选2020→数据表点“查看来源”弹窗",
+ "clicks": 4,
+ "data_year": "2020",
+ "verification": "页面无横向溢出；未在真实手机或微信内置浏览器中验证",
+ "evidence": "screenshots/acceptance-H-mobile.png",
+ "failure_reason": ""
+}

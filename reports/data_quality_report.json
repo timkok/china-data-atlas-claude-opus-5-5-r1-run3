@@ -1,0 +1,1070 @@
+{
+ "generated_from": "data/normalized/observations.csv",
+ "rows": 11104,
+ "unique_valid_observations": 10416,
+ "missing_rows": 688,
+ "verified_observations": 78,
+ "partially_verified_observations": 7911,
+ "errors": 0,
+ "warnings": 2,
+ "checks": [
+  {
+   "check": "schema_required_columns",
+   "level": "ERROR",
+   "passed": true,
+   "detail": "all required columns present",
+   "count": null
+  },
+  {
+   "check": "value_numeric",
+   "level": "ERROR",
+   "passed": true,
+   "detail": "non-empty values parse as numbers",
+   "count": 0
+  },
+  {
+   "check": "geo_code_valid",
+   "level": "ERROR",
+   "passed": true,
+   "detail": "geo_code in regions.json and level consistent",
+   "count": 0
+  },
+  {
+   "check": "year_range",
+   "level": "ERROR",
+   "passed": true,
+   "detail": "2000<=year<=2025",
+   "count": 0
+  },
+  {
+   "check": "unit_consistency",
+   "level": "ERROR",
+   "passed": true,
+   "detail": "unit equals configured unit for indicator",
+   "count": 0
+  },
+  {
+   "check": "unique_key",
+   "level": "ERROR",
+   "passed": true,
+   "detail": "(indicator_id, geo_code, year) unique",
+   "count": 0
+  },
+  {
+   "check": "source_completeness",
+   "level": "ERROR",
+   "passed": true,
+   "detail": "every value has agency/url/table/locator",
+   "count": 0
+  },
+  {
+   "check": "missing_not_zero",
+   "level": "ERROR",
+   "passed": true,
+   "detail": "missing values are empty with status unknown (never 0)",
+   "count": 0
+  },
+  {
+   "check": "status_enums",
+   "level": "ERROR",
+   "passed": true,
+   "detail": "data_status / verification_status enums",
+   "count": 0
+  },
+  {
+   "check": "iso_dates",
+   "level": "ERROR",
+   "passed": true,
+   "detail": "retrieved_at ISO 8601",
+   "count": 0
+  },
+  {
+   "check": "no_negative_where_impossible",
+   "level": "ERROR",
+   "passed": true,
+   "detail": "only natural_growth_rate may be negative",
+   "count": 0
+  },
+  {
+   "check": "percent_range",
+   "level": "ERROR",
+   "passed": true,
+   "detail": "percent values within 0-100",
+   "count": 0
+  },
+  {
+   "check": "yoy_outliers",
+   "level": "WARNING",
+   "passed": false,
+   "detail": "year-on-year change >30% (levels) or >3 points (%/‰ rates) flagged for review (not an error)",
+   "count": 87
+  },
+  {
+   "check": "national_vs_province_sum",
+   "level": "WARNING",
+   "passed": true,
+   "detail": "sum of 31 provinces vs national for additive indicators (|diff|<=0.5%); population excluded because national includes active military",
+   "count": 0
+  },
+  {
+   "check": "population_military_gap_plausible",
+   "level": "WARNING",
+   "passed": false,
+   "detail": "national population minus sum of provinces should be small and positive (active military + rounding)",
+   "count": 26
+  }
+ ],
+ "yoy_outliers": [
+  {
+   "indicator": "birth_rate",
+   "geo": "330000",
+   "year": 2020,
+   "prev": 10.51,
+   "value": 7.13,
+   "change": 3.38
+  },
+  {
+   "indicator": "birth_rate",
+   "geo": "350000",
+   "year": 2020,
+   "prev": 12.9,
+   "value": 9.21,
+   "change": 3.69
+  },
+  {
+   "indicator": "birth_rate",
+   "geo": "360000",
+   "year": 2020,
+   "prev": 12.59,
+   "value": 9.48,
+   "change": 3.11
+  },
+  {
+   "indicator": "birth_rate",
+   "geo": "370000",
+   "year": 2016,
+   "prev": 12.55,
+   "value": 17.89,
+   "change": 5.34
+  },
+  {
+   "indicator": "birth_rate",
+   "geo": "370000",
+   "year": 2018,
+   "prev": 17.54,
+   "value": 13.26,
+   "change": 4.28
+  },
+  {
+   "indicator": "birth_rate",
+   "geo": "370000",
+   "year": 2020,
+   "prev": 11.77,
+   "value": 8.56,
+   "change": 3.21
+  },
+  {
+   "indicator": "birth_rate",
+   "geo": "420000",
+   "year": 2020,
+   "prev": 11.35,
+   "value": 8.28,
+   "change": 3.07
+  },
+  {
+   "indicator": "birth_rate",
+   "geo": "500000",
+   "year": 2020,
+   "prev": 10.48,
+   "value": 7.47,
+   "change": 3.01
+  },
+  {
+   "indicator": "birth_rate",
+   "geo": "510000",
+   "year": 2020,
+   "prev": 10.7,
+   "value": 7.6,
+   "change": 3.1
+  },
+  {
+   "indicator": "birth_rate",
+   "geo": "650000",
+   "year": 2018,
+   "prev": 15.88,
+   "value": 10.69,
+   "change": 5.19
+  },
+  {
+   "indicator": "urbanization_rate",
+   "geo": "320000",
+   "year": 2010,
+   "prev": 55.61,
+   "value": 60.58,
+   "change": 4.97
+  },
+  {
+   "indicator": "urbanization_rate",
+   "geo": "330000",
+   "year": 2010,
+   "prev": 57.9,
+   "value": 61.61,
+   "change": 3.71
+  },
+  {
+   "indicator": "urbanization_rate",
+   "geo": "420000",
+   "year": 2010,
+   "prev": 46.0,
+   "value": 49.7,
+   "change": 3.7
+  },
+  {
+   "indicator": "urbanization_rate",
+   "geo": "520000",
+   "year": 2010,
+   "prev": 29.88,
+   "value": 33.8,
+   "change": 3.92
+  },
+  {
+   "indicator": "urbanization_rate",
+   "geo": "650000",
+   "year": 2010,
+   "prev": 39.83,
+   "value": 43.02,
+   "change": 3.19
+  },
+  {
+   "indicator": "population_65plus",
+   "geo": "310000",
+   "year": 2005,
+   "prev": 15.4,
+   "value": 11.96,
+   "change": 3.44
+  },
+  {
+   "indicator": "population_65plus",
+   "geo": "310000",
+   "year": 2015,
+   "prev": 9.68,
+   "value": 12.82,
+   "change": 3.14
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "130000",
+   "year": 2001,
+   "prev": 252600.0,
+   "value": 350500.0,
+   "change": 0.388
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "130000",
+   "year": 2002,
+   "prev": 350500.0,
+   "value": 473000.0,
+   "change": 0.35
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "140000",
+   "year": 2001,
+   "prev": 125000.0,
+   "value": 165000.0,
+   "change": 0.32
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "140000",
+   "year": 2003,
+   "prev": 208400.0,
+   "value": 273000.0,
+   "change": 0.31
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "150000",
+   "year": 2001,
+   "prev": 71900.0,
+   "value": 99600.0,
+   "change": 0.385
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "150000",
+   "year": 2003,
+   "prev": 120700.0,
+   "value": 157600.0,
+   "change": 0.306
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "330000",
+   "year": 2001,
+   "prev": 192400.0,
+   "value": 293100.0,
+   "change": 0.523
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "330000",
+   "year": 2002,
+   "prev": 293100.0,
+   "value": 393100.0,
+   "change": 0.341
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "340000",
+   "year": 2001,
+   "prev": 191800.0,
+   "value": 252200.0,
+   "change": 0.315
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "340000",
+   "year": 2002,
+   "prev": 252200.0,
+   "value": 330100.0,
+   "change": 0.309
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "350000",
+   "year": 2003,
+   "prev": 197300.0,
+   "value": 257400.0,
+   "change": 0.305
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "360000",
+   "year": 2001,
+   "prev": 148600.0,
+   "value": 196500.0,
+   "change": 0.322
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "360000",
+   "year": 2002,
+   "prev": 196500.0,
+   "value": 266300.0,
+   "change": 0.355
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "360000",
+   "year": 2003,
+   "prev": 266300.0,
+   "value": 358600.0,
+   "change": 0.347
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "360000",
+   "year": 2004,
+   "prev": 358600.0,
+   "value": 489900.0,
+   "change": 0.366
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "360000",
+   "year": 2005,
+   "prev": 489900.0,
+   "value": 646100.0,
+   "change": 0.319
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "370000",
+   "year": 2001,
+   "prev": 325300.0,
+   "value": 449400.0,
+   "change": 0.381
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "370000",
+   "year": 2003,
+   "prev": 583600.0,
+   "value": 761400.0,
+   "change": 0.305
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "410000",
+   "year": 2001,
+   "prev": 273400.0,
+   "value": 369100.0,
+   "change": 0.35
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "460000",
+   "year": 2001,
+   "prev": 19200.0,
+   "value": 26100.0,
+   "change": 0.359
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "460000",
+   "year": 2002,
+   "prev": 26100.0,
+   "value": 34700.0,
+   "change": 0.33
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "460000",
+   "year": 2004,
+   "prev": 43500.0,
+   "value": 57900.0,
+   "change": 0.331
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "510000",
+   "year": 2002,
+   "prev": 316700.0,
+   "value": 412400.0,
+   "change": 0.302
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "520000",
+   "year": 2001,
+   "prev": 79800.0,
+   "value": 108200.0,
+   "change": 0.356
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "540000",
+   "year": 2004,
+   "prev": 10400.0,
+   "value": 14700.0,
+   "change": 0.413
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "610000",
+   "year": 2002,
+   "prev": 313700.0,
+   "value": 411600.0,
+   "change": 0.312
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "620000",
+   "year": 2001,
+   "prev": 82600.0,
+   "value": 110900.0,
+   "change": 0.343
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "630000",
+   "year": 2001,
+   "prev": 13500.0,
+   "value": 17900.0,
+   "change": 0.326
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "640000",
+   "year": 2001,
+   "prev": 17500.0,
+   "value": 23200.0,
+   "change": 0.326
+  },
+  {
+   "indicator": "higher_education_students",
+   "geo": "650000",
+   "year": 2001,
+   "prev": 81000.0,
+   "value": 108100.0,
+   "change": 0.335
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "120000",
+   "year": 2001,
+   "prev": 21.0,
+   "value": 33.0,
+   "change": 0.571
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "140000",
+   "year": 2001,
+   "prev": 24.0,
+   "value": 33.0,
+   "change": 0.375
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "210000",
+   "year": 2008,
+   "prev": 79.0,
+   "value": 104.0,
+   "change": 0.316
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "330000",
+   "year": 2002,
+   "prev": 39.0,
+   "value": 61.0,
+   "change": 0.564
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "330000",
+   "year": 2008,
+   "prev": 73.0,
+   "value": 98.0,
+   "change": 0.342
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "350000",
+   "year": 2004,
+   "prev": 39.0,
+   "value": 53.0,
+   "change": 0.359
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "360000",
+   "year": 2002,
+   "prev": 33.0,
+   "value": 47.0,
+   "change": 0.424
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "370000",
+   "year": 2001,
+   "prev": 47.0,
+   "value": 65.0,
+   "change": 0.383
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "420000",
+   "year": 2008,
+   "prev": 86.0,
+   "value": 118.0,
+   "change": 0.372
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "460000",
+   "year": 2001,
+   "prev": 5.0,
+   "value": 9.0,
+   "change": 0.8
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "500000",
+   "year": 2001,
+   "prev": 22.0,
+   "value": 29.0,
+   "change": 0.318
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "520000",
+   "year": 2001,
+   "prev": 23.0,
+   "value": 30.0,
+   "change": 0.304
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "540000",
+   "year": 2003,
+   "prev": 3.0,
+   "value": 4.0,
+   "change": 0.333
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "540000",
+   "year": 2006,
+   "prev": 4.0,
+   "value": 6.0,
+   "change": 0.5
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "620000",
+   "year": 2001,
+   "prev": 18.0,
+   "value": 25.0,
+   "change": 0.389
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "630000",
+   "year": 2002,
+   "prev": 8.0,
+   "value": 11.0,
+   "change": 0.375
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "630000",
+   "year": 2014,
+   "prev": 9.0,
+   "value": 12.0,
+   "change": 0.333
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "640000",
+   "year": 2001,
+   "prev": 6.0,
+   "value": 8.0,
+   "change": 0.333
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "640000",
+   "year": 2002,
+   "prev": 8.0,
+   "value": 12.0,
+   "change": 0.5
+  },
+  {
+   "indicator": "higher_education_institutions",
+   "geo": "650000",
+   "year": 2001,
+   "prev": 16.0,
+   "value": 21.0,
+   "change": 0.312
+  },
+  {
+   "indicator": "physicians_per_1000",
+   "geo": "150000",
+   "year": 2009,
+   "prev": 2.03,
+   "value": 2.82,
+   "change": 0.389
+  },
+  {
+   "indicator": "hospital_beds_per_1000",
+   "geo": "110000",
+   "year": 2012,
+   "prev": 7.4,
+   "value": 4.84,
+   "change": 0.346
+  },
+  {
+   "indicator": "hospital_beds_per_1000",
+   "geo": "310000",
+   "year": 2012,
+   "prev": 7.55,
+   "value": 4.61,
+   "change": 0.389
+  },
+  {
+   "indicator": "hospital_beds_per_1000",
+   "geo": "410000",
+   "year": 2012,
+   "prev": 3.2,
+   "value": 4.19,
+   "change": 0.309
+  },
+  {
+   "indicator": "hospital_beds_per_1000",
+   "geo": "510000",
+   "year": 2012,
+   "prev": 3.7,
+   "value": 4.83,
+   "change": 0.305
+  },
+  {
+   "indicator": "hospital_beds_per_1000",
+   "geo": "520000",
+   "year": 2012,
+   "prev": 2.77,
+   "value": 4.0,
+   "change": 0.444
+  },
+  {
+   "indicator": "hospital_beds_per_1000",
+   "geo": "540000",
+   "year": 2013,
+   "prev": 2.71,
+   "value": 3.53,
+   "change": 0.303
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "130000",
+   "year": 2020,
+   "prev": 4.71,
+   "value": 0.94,
+   "change": 3.77
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "230000",
+   "year": 2020,
+   "prev": -1.01,
+   "value": -4.48,
+   "change": 3.47
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "330000",
+   "year": 2020,
+   "prev": 4.99,
+   "value": 0.57,
+   "change": 4.42
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "340000",
+   "year": 2020,
+   "prev": 5.99,
+   "value": 1.49,
+   "change": 4.5
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "350000",
+   "year": 2020,
+   "prev": 6.8,
+   "value": 2.97,
+   "change": 3.83
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "360000",
+   "year": 2020,
+   "prev": 6.56,
+   "value": 2.87,
+   "change": 3.69
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "370000",
+   "year": 2016,
+   "prev": 5.88,
+   "value": 10.84,
+   "change": 4.96
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "370000",
+   "year": 2018,
+   "prev": 10.14,
+   "value": 6.08,
+   "change": 4.06
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "420000",
+   "year": 2020,
+   "prev": 4.27,
+   "value": 0.61,
+   "change": 3.66
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "500000",
+   "year": 2020,
+   "prev": 2.91,
+   "value": -0.23,
+   "change": 3.14
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "510000",
+   "year": 2020,
+   "prev": 3.61,
+   "value": -0.88,
+   "change": 4.49
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "530000",
+   "year": 2020,
+   "prev": 6.43,
+   "value": 3.04,
+   "change": 3.39
+  },
+  {
+   "indicator": "natural_growth_rate",
+   "geo": "650000",
+   "year": 2018,
+   "prev": 11.4,
+   "value": 6.13,
+   "change": 5.27
+  }
+ ],
+ "national_vs_province": [],
+ "population_military_gap": [
+  {
+   "year": 2000,
+   "national_minus_sum": 748.0
+  },
+  {
+   "year": 2001,
+   "national_minus_sum": 1048.0
+  },
+  {
+   "year": 2002,
+   "national_minus_sum": 1134.0
+  },
+  {
+   "year": 2003,
+   "national_minus_sum": 1037.0
+  },
+  {
+   "year": 2004,
+   "national_minus_sum": 966.0
+  },
+  {
+   "year": 2005,
+   "national_minus_sum": 2152.0
+  },
+  {
+   "year": 2006,
+   "national_minus_sum": 1925.0
+  },
+  {
+   "year": 2007,
+   "national_minus_sum": 1736.0
+  },
+  {
+   "year": 2008,
+   "national_minus_sum": 1368.0
+  },
+  {
+   "year": 2009,
+   "national_minus_sum": 1007.0
+  },
+  {
+   "year": 2010,
+   "national_minus_sum": 706.0
+  },
+  {
+   "year": 2011,
+   "national_minus_sum": 229.0
+  },
+  {
+   "year": 2012,
+   "national_minus_sum": 228.0
+  },
+  {
+   "year": 2013,
+   "national_minus_sum": 230.0
+  },
+  {
+   "year": 2014,
+   "national_minus_sum": 229.0
+  },
+  {
+   "year": 2015,
+   "national_minus_sum": 229.0
+  },
+  {
+   "year": 2016,
+   "national_minus_sum": 229.0
+  },
+  {
+   "year": 2017,
+   "national_minus_sum": 232.0
+  },
+  {
+   "year": 2018,
+   "national_minus_sum": 231.0
+  },
+  {
+   "year": 2019,
+   "national_minus_sum": 203.0
+  },
+  {
+   "year": 2020,
+   "national_minus_sum": 199.0
+  },
+  {
+   "year": 2021,
+   "national_minus_sum": 200.0
+  },
+  {
+   "year": 2022,
+   "national_minus_sum": 200.0
+  },
+  {
+   "year": 2023,
+   "national_minus_sum": 200.0
+  },
+  {
+   "year": 2024,
+   "national_minus_sum": 200.0
+  },
+  {
+   "year": 2025,
+   "national_minus_sum": 200.0
+  }
+ ],
+ "indicator_summary": {
+  "population": {
+   "core": true,
+   "first_year": 2000,
+   "latest_province_year": 2025,
+   "latest_national_year": 2025,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 26,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 832
+  },
+  "birth_rate": {
+   "core": true,
+   "first_year": 2000,
+   "latest_province_year": 2024,
+   "latest_national_year": 2025,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 24,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 799
+  },
+  "urbanization_rate": {
+   "core": true,
+   "first_year": 2000,
+   "latest_province_year": 2024,
+   "latest_national_year": 2025,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 20,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 646
+  },
+  "population_65plus": {
+   "core": true,
+   "first_year": 2000,
+   "latest_province_year": 2024,
+   "latest_national_year": 2025,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 22,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 708
+  },
+  "gdp": {
+   "core": true,
+   "first_year": 2000,
+   "latest_province_year": 2025,
+   "latest_national_year": 2025,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 26,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 832
+  },
+  "gdp_per_capita": {
+   "core": true,
+   "first_year": 2000,
+   "latest_province_year": 2025,
+   "latest_national_year": 2025,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 26,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 832
+  },
+  "disposable_income": {
+   "core": true,
+   "first_year": 2013,
+   "latest_province_year": 2025,
+   "latest_national_year": 2025,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 13,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 416
+  },
+  "retail_sales": {
+   "core": true,
+   "first_year": 2000,
+   "latest_province_year": 2025,
+   "latest_national_year": 2025,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 26,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 832
+  },
+  "higher_education_students": {
+   "core": true,
+   "first_year": 2000,
+   "latest_province_year": 2024,
+   "latest_national_year": 2025,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 25,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 801
+  },
+  "higher_education_institutions": {
+   "core": true,
+   "first_year": 2000,
+   "latest_province_year": 2024,
+   "latest_national_year": 2024,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 25,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 800
+  },
+  "physicians_per_1000": {
+   "core": true,
+   "first_year": 2000,
+   "latest_province_year": 2024,
+   "latest_national_year": 2025,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 25,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 801
+  },
+  "hospital_beds_per_1000": {
+   "core": true,
+   "first_year": 2002,
+   "latest_province_year": 2024,
+   "latest_national_year": 2024,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 16,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 519
+  },
+  "death_rate": {
+   "core": false,
+   "first_year": 2000,
+   "latest_province_year": 2024,
+   "latest_national_year": 2025,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 24,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 799
+  },
+  "natural_growth_rate": {
+   "core": false,
+   "first_year": 2000,
+   "latest_province_year": 2024,
+   "latest_national_year": 2025,
+   "latest_province_coverage": 1.0,
+   "years_with_full_31": 24,
+   "continuity_since_2015": 1.0,
+   "valid_observations": 799
+  }
+ },
+ "core_completion": {
+  "core_target": 12,
+  "core_with_latest_full_province_data": 12,
+  "mean_latest_province_coverage": 1.0,
+  "mean_continuity_since_2015": 1.0
+ }
+}

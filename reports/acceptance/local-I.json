@@ -1,0 +1,11 @@
+{
+ "task": "I",
+ "environment": "local static build",
+ "result": "Pass",
+ "steps": "打开“每千人口医疗卫生机构床位数”→排名年份选2005（数据库无该年省级数据）→显示“没有发布…不插值”提示；数据表勾选“显示缺失值”后2005年省级行均为“缺失”",
+ "clicks": 3,
+ "data_year": "2005",
+ "verification": "无任何省级数值生成；observations.csv 对应行 value 为空、data_status=unknown",
+ "evidence": "screenshots/acceptance-I.png",
+ "failure_reason": ""
+}

@@ -1,0 +1,11 @@
+{
+ "task": "F",
+ "environment": "local static build",
+ "result": "Pass",
+ "steps": "打开“每千人口执业（助理）医师数”→排名区默认显示最新年（2024）31省降序排名",
+ "clicks": 1,
+ "data_year": "2024",
+ "verification": "广东2.94、北京5.79、山东3.99、河南3.71、西藏3.68与年鉴2025表22-3一致",
+ "evidence": "screenshots/acceptance-F.png",
+ "failure_reason": ""
+}

@@ -1,0 +1,11 @@
+{
+ "task": "E",
+ "environment": "local static build",
+ "result": "Pass",
+ "steps": "打开“居民人均可支配收入”→地区比较的多省比较默认即山东、河南、广东（0次额外点击）；或在历史趋势中选择这三省查看2013—2025",
+ "clicks": "1（地区比较）/7（趋势重选）",
+ "data_year": "2025（趋势2013—2025）",
+ "verification": "2024年山东42077、河南31552、广东51474与年鉴2025表6-18一致",
+ "evidence": "screenshots/acceptance-E.png",
+ "failure_reason": ""
+}

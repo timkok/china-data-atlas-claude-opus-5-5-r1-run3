@@ -1,0 +1,11 @@
+{
+ "task": "C",
+ "environment": "local static build",
+ "result": "Pass",
+ "steps": "打开“65岁及以上人口占比”→年份选2020→排名表第1名辽宁17.42%；方法区注明2020年为七普口径；数据表中2020年行的来源为《第七次全国人口普查公报（第五号）》表5-2",
+ "clicks": 2,
+ "data_year": "2020（普查标准时点2020-11-01）",
+ "verification": "辽宁17.42、广东8.58与七普公报表5-2一致；全国13.50%经独立核验",
+ "evidence": "screenshots/acceptance-C.png",
+ "failure_reason": ""
+}
