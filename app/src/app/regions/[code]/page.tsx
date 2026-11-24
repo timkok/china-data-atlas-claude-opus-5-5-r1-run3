@@ -13,9 +13,9 @@ export default async function RegionPage({ params }: { params: Promise<{ code: s
   if (!g || g.level !== "province") notFound();
   return (
     <div className="wrap pt-8">
-      <nav className="text-xs text-[--muted]"><a href="/">首页</a> / <a href="/regions/">地区</a> / {g.short_zh}</nav>
+      <nav className="text-xs text-[var(--muted)]"><a href="/">首页</a> / <a href="/regions/">地区</a> / {g.short_zh}</nav>
       <h1 className="text-2xl font-bold mt-2">{g.name_zh}</h1>
-      <p className="text-sm text-[--muted]">{g.name_en} · 代码 {g.geo_code} · {g.region7}地区 · 国家统计局四大区域：{g.zone4}</p>
+      <p className="text-sm text-[var(--muted)]">{g.name_en} · 代码 {g.geo_code} · {g.region7}地区 · 国家统计局四大区域：{g.zone4}</p>
       {CATEGORIES.map((c) => (
         <section key={c.id} className="sec">
           <h2>{c.zh}</h2>
@@ -32,7 +32,7 @@ export default async function RegionPage({ params }: { params: Promise<{ code: s
             })}</tbody></table></div>
         </section>
       ))}
-      <p className="text-xs text-[--muted] mt-4">排名为降序（数值最高=第1名），不代表优劣。表格路径见各指标页“方法与来源”。</p>
+      <p className="text-xs text-[var(--muted)] mt-4">排名为降序（数值最高=第1名），不代表优劣。表格路径见各指标页“方法与来源”。</p>
     </div>
   );
 }

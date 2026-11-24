@@ -21,7 +21,7 @@ export default function HomeFeature() {
       markLine: ind.national_latest !== null && ind.latest_national_year === ind.latest_province_year ? { symbol: "none", lineStyle: { color: INK, type: "dashed" }, label: { formatter: `全国 ${fmt(ind.national_latest, ind.unit)}`, fontSize: 10, position: "insideEndTop" }, data: [{ yAxis: ind.national_latest }] } : undefined }],
   }), [ind, rows, vals]);
   return (
-    <div className="bg-white border border-[--line] rounded-lg p-4" data-testid="home-feature">
+    <div className="bg-white border border-[var(--line)] rounded-lg p-4" data-testid="home-feature">
       <div role="tablist" aria-label="选择指标" className="flex flex-wrap gap-1 mb-2">
         {TABS.map((t) => <button key={t} role="tab" aria-selected={t === id} className={`chip ${t === id ? "chip-on" : ""}`} onClick={() => setId(t)}>{getIndicator(t)!.name_zh}</button>)}
       </div>
@@ -30,7 +30,7 @@ export default function HomeFeature() {
         <a className="text-sm underline" href={`/indicators/${id}/`}>打开完整指标页 →</a>
       </div>
       <EChart option={option} height={340} label={`${ind.latest_province_year}年各省${ind.name_zh}条形图`} />
-      <p className="text-[11px] text-[--muted]">来源：国家统计局 · {ind.source.province_table}。按数值从高到低排列，虚线为全国值（同年时显示）。</p>
+      <p className="text-[11px] text-[var(--muted)]">来源：国家统计局 · {ind.source.province_table}。按数值从高到低排列，虚线为全国值（同年时显示）。</p>
     </div>
   );
 }

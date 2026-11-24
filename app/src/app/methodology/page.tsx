@@ -7,7 +7,7 @@ export default function Methodology() {
   return (
     <div className="wrap pt-8 max-w-4xl text-sm leading-7">
       <h1 className="text-2xl font-bold">方法、来源与引用</h1>
-      <p className="text-[--muted]">方法版本 {SITE.methodology_version} · 数据获取 {SITE.generated_at}</p>
+      <p className="text-[var(--muted)]">方法版本 {SITE.methodology_version} · 数据获取 {SITE.generated_at}</p>
       <section className="sec"><h2>1. 数据来源</h2>
         <ul className="list-disc pl-5">
           <li><b>主来源</b>：国家统计局“国家数据”数据库（data.stats.gov.cn）的“分省年度数据”与“年度数据”，通过网页本身使用的公开查询接口获取。不登录、不绕过验证码或访问控制，请求间隔≥1.2秒并本地缓存。旧版 easyquery 接口返回403，未使用。</li>
@@ -34,8 +34,8 @@ export default function Methodology() {
       <section className="sec" id="dictionary"><h2>7. 数据字典（CSV 字段）</h2>
         <table className="tbl"><tbody>{DICT.map(([k, v]) => <tr key={k}><td className="font-mono">{k}</td><td>{v}</td></tr>)}</tbody></table></section>
       <section className="sec"><h2>8. 推荐引用</h2>
-        <p className="bg-white border border-[--line] rounded p-3">国家统计局.〔指标名称〕. 国家数据 data.stats.gov.cn. 获取日期 {SITE.generated_at.slice(0, 10)}. 经 China Data Atlas | 中国数据地图 整理（方法版本 {SITE.methodology_version}）.</p>
-        <p className="text-xs text-[--muted] mt-1">引用时请同时注明统计年份与原始来源；本站不是官方发布渠道。</p></section>
+        <p className="bg-white border border-[var(--line)] rounded p-3">国家统计局.〔指标名称〕. 国家数据 data.stats.gov.cn. 获取日期 {SITE.generated_at.slice(0, 10)}. 经 China Data Atlas | 中国数据地图 整理（方法版本 {SITE.methodology_version}）.</p>
+        <p className="text-xs text-[var(--muted)] mt-1">引用时请同时注明统计年份与原始来源；本站不是官方发布渠道。</p></section>
     </div>
   );
 }

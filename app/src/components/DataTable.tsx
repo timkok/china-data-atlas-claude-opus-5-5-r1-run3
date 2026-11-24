@@ -99,7 +99,7 @@ export default function DataTable({ initialIndicators, initialSeries, allowIndic
         <label className="text-sm flex items-center gap-1"><input type="checkbox" checked={!hideMissing} onChange={(e) => setHideMissing(!e.target.checked)} data-testid="show-missing" />显示缺失值</label>
         <button className="btn btn-primary" onClick={download} data-testid="csv-download">下载 CSV（{rows.length} 行）</button>
       </div>
-      <div className="overflow-x-auto border border-[--line] rounded">
+      <div className="overflow-x-auto border border-[var(--line)] rounded">
         <table className="tbl" data-testid="explorer-table">
           <caption className="sr-only">数据表</caption>
           <thead><tr>{th("ind", "指标")}{th("geo", "地区")}{th("year", "年份")}{th("value", "数值", true)}<th>单位</th><th>状态</th><th>来源</th></tr></thead>
@@ -109,16 +109,16 @@ export default function DataTable({ initialIndicators, initialSeries, allowIndic
               return (
                 <tr key={`${r.ind}-${r.geo}-${r.year}`} data-row={`${r.ind}|${r.geo}|${r.year}`}>
                   <td className="text-xs">{ind.name_zh}</td>
-                  <td>{GEO[r.geo].short_zh}{GEO[r.geo].level === "national" && <span className="ml-1 text-[10px] px-1 rounded bg-[--ink] text-white">全国</span>}</td>
+                  <td>{GEO[r.geo].short_zh}{GEO[r.geo].level === "national" && <span className="ml-1 text-[10px] px-1 rounded bg-[var(--ink)] text-white">全国</span>}</td>
                   <td className="tabular-nums">{r.year}</td>
-                  <td className="text-right tabular-nums" data-value={r.value ?? ""}>{r.value === null ? <span className="text-[--muted]" title="官方来源该年份无数据，未插值">缺失</span> : fmt(r.value, ind.unit)}</td>
+                  <td className="text-right tabular-nums" data-value={r.value ?? ""}>{r.value === null ? <span className="text-[var(--muted)]" title="官方来源该年份无数据，未插值">缺失</span> : fmt(r.value, ind.unit)}</td>
                   <td className="text-xs">{ind.unit}</td>
                   <td className="text-xs">{r.value === null ? "—" : `${STATUS_LABEL[r.status[0]] || ""} · ${VERIF_LABEL[r.status[1]] || ""}`}</td>
                   <td><button className="text-xs underline" onClick={() => setSrcRow(r)} data-testid="source-btn">查看来源</button></td>
                 </tr>
               );
             })}
-            {view.length === 0 && <tr><td colSpan={7} className="text-center text-sm py-6 text-[--muted]" data-testid="explorer-empty">没有符合条件的数据。官方来源在该范围内无数据时，本平台不生成数值。</td></tr>}
+            {view.length === 0 && <tr><td colSpan={7} className="text-center text-sm py-6 text-[var(--muted)]" data-testid="explorer-empty">没有符合条件的数据。官方来源在该范围内无数据时，本平台不生成数值。</td></tr>}
           </tbody>
         </table>
       </div>
@@ -140,18 +140,18 @@ function SourceDialog({ row, onClose }: { row: Row; onClose: () => void }) {
       <div className="bg-white rounded-lg max-w-lg w-full p-4 text-sm" onClick={(e) => e.stopPropagation()} data-testid="source-dialog">
         <div className="flex justify-between"><h4 className="font-semibold">数据来源 · {GEO[row.geo].name_zh} {row.year}年 {ind.name_zh}</h4><button autoFocus onClick={onClose} aria-label="关闭">✕</button></div>
         <dl className="mt-3 grid grid-cols-[6rem_1fr] gap-y-1.5 text-xs">
-          <dt className="text-[--muted]">数值</dt><dd>{row.value === null ? "缺失（官方无数据）" : `${fmt(row.value, ind.unit)} ${ind.unit}`}</dd>
-          <dt className="text-[--muted]">来源机构</dt><dd>国家统计局（National Bureau of Statistics of China）</dd>
-          <dt className="text-[--muted]">数据库</dt><dd>国家数据 · {nat ? "年度数据" : "分省年度数据"}</dd>
-          <dt className="text-[--muted]">表格路径</dt><dd>{nat ? ind.source.national_table : ind.source.province_table}</dd>
-          <dt className="text-[--muted]">原始单位</dt><dd>{nat ? ind.source.national_orig_unit : ind.source.province_orig_unit}</dd>
-          <dt className="text-[--muted]">转换</dt><dd className="font-mono">{nat ? ind.source.national_transformation : ind.source.province_transformation}</dd>
-          <dt className="text-[--muted]">定位信息</dt><dd className="font-mono break-all">cid={nat ? ind.source.national_cid : ind.source.province_cid}; ids={Object.values(ids).join("|")}; da={GEO[row.geo].nbs_code}; {row.year}YY</dd>
-          <dt className="text-[--muted]">获取日期</dt><dd>{ind.source.retrieved_at?.slice(0, 10)}</dd>
-          <dt className="text-[--muted]">状态</dt><dd>{STATUS_LABEL[row.status[0]]} · {VERIF_LABEL[row.status[1]]}</dd>
+          <dt className="text-[var(--muted)]">数值</dt><dd>{row.value === null ? "缺失（官方无数据）" : `${fmt(row.value, ind.unit)} ${ind.unit}`}</dd>
+          <dt className="text-[var(--muted)]">来源机构</dt><dd>国家统计局（National Bureau of Statistics of China）</dd>
+          <dt className="text-[var(--muted)]">数据库</dt><dd>国家数据 · {nat ? "年度数据" : "分省年度数据"}</dd>
+          <dt className="text-[var(--muted)]">表格路径</dt><dd>{nat ? ind.source.national_table : ind.source.province_table}</dd>
+          <dt className="text-[var(--muted)]">原始单位</dt><dd>{nat ? ind.source.national_orig_unit : ind.source.province_orig_unit}</dd>
+          <dt className="text-[var(--muted)]">转换</dt><dd className="font-mono">{nat ? ind.source.national_transformation : ind.source.province_transformation}</dd>
+          <dt className="text-[var(--muted)]">定位信息</dt><dd className="font-mono break-all">cid={nat ? ind.source.national_cid : ind.source.province_cid}; ids={Object.values(ids).join("|")}; da={GEO[row.geo].nbs_code}; {row.year}YY</dd>
+          <dt className="text-[var(--muted)]">获取日期</dt><dd>{ind.source.retrieved_at?.slice(0, 10)}</dd>
+          <dt className="text-[var(--muted)]">状态</dt><dd>{STATUS_LABEL[row.status[0]]} · {VERIF_LABEL[row.status[1]]}</dd>
         </dl>
         <a className="btn btn-primary mt-3 inline-block" href={(nat ? ind.source.national_url : ind.source.province_url) || "https://data.stats.gov.cn/"} target="_blank" rel="noopener noreferrer">打开国家统计局官方查询页 ↗</a>
-        <p className="text-[11px] text-[--muted] mt-2">在官方页面按上述“表格路径”选择指标与地区即可看到同一数值。</p>
+        <p className="text-[11px] text-[var(--muted)] mt-2">在官方页面按上述“表格路径”选择指标与地区即可看到同一数值。</p>
       </div>
     </div>
   );

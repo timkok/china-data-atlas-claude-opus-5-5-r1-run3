@@ -56,9 +56,9 @@ export default function TrendSection({ ind, series, initialGeos }: { ind: Indica
         <label className="text-sm">起始年<select data-testid="trend-from" className="ctl ml-2" value={from} onChange={(e) => setFrom(Math.min(Number(e.target.value), to))}>{years.map((y) => <option key={y}>{y}</option>)}</select></label>
         <label className="text-sm">结束年<select data-testid="trend-to" className="ctl ml-2" value={to} onChange={(e) => setTo(Math.max(Number(e.target.value), from))}>{years.map((y) => <option key={y}>{y}</option>)}</select></label>
         <label className="text-sm flex items-center gap-1"><input type="checkbox" checked={showNat} onChange={(e) => setShowNat(e.target.checked)} />显示全国</label>
-        <div role="radiogroup" aria-label="显示方式" className="flex text-sm border border-[--line] rounded overflow-hidden">
-          <button role="radio" aria-checked={mode === "value"} className={`px-2 py-1 ${mode === "value" ? "bg-[--ink] text-white" : ""}`} onClick={() => setMode("value")}>实际数值</button>
-          <button role="radio" aria-checked={mode === "index"} className={`px-2 py-1 ${mode === "index" ? "bg-[--ink] text-white" : ""}`} onClick={() => setMode("index")}>指数（衍生）</button>
+        <div role="radiogroup" aria-label="显示方式" className="flex text-sm border border-[var(--line)] rounded overflow-hidden">
+          <button role="radio" aria-checked={mode === "value"} className={`px-2 py-1 ${mode === "value" ? "bg-[var(--ink)] text-white" : ""}`} onClick={() => setMode("value")}>实际数值</button>
+          <button role="radio" aria-checked={mode === "index"} className={`px-2 py-1 ${mode === "index" ? "bg-[var(--ink)] text-white" : ""}`} onClick={() => setMode("index")}>指数（衍生）</button>
         </div>
       </div>
       <details className="mb-3" open>
@@ -71,8 +71,8 @@ export default function TrendSection({ ind, series, initialGeos }: { ind: Indica
         </div>
       </details>
       <EChart option={option} height={380} label={`${ind.name_zh}历史趋势：${geos.map((g) => GEO[g].short_zh).join("、")}`} />
-      <p className="text-[11px] text-[--muted] mt-2">圆点 = 实际观测年份；线条断开 = 该年份无官方数据（不插值）。{mode === "index" ? "指数模式为衍生计算：各序列以所选区间首个观测年=100。" : ""}</p>
-      {gaps.length > 0 && <p className="text-[11px] text-[--muted]" data-testid="trend-gaps">所选范围内缺失：{gaps.slice(0, 20).join("、")}{gaps.length > 20 ? ` 等 ${gaps.length} 处` : ""}</p>}
+      <p className="text-[11px] text-[var(--muted)] mt-2">圆点 = 实际观测年份；线条断开 = 该年份无官方数据（不插值）。{mode === "index" ? "指数模式为衍生计算：各序列以所选区间首个观测年=100。" : ""}</p>
+      {gaps.length > 0 && <p className="text-[11px] text-[var(--muted)]" data-testid="trend-gaps">所选范围内缺失：{gaps.slice(0, 20).join("、")}{gaps.length > 20 ? ` 等 ${gaps.length} 处` : ""}</p>}
       {breaks.length > 0 && <ul className="text-[11px] text-amber-800 mt-1">{breaks.map((b) => <li key={b.year}>▲ {b.year}：{b.note}</li>)}</ul>}
       <div className="overflow-x-auto mt-3">
         <table className="tbl text-xs" data-testid="trend-table">

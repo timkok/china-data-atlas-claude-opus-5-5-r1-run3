@@ -13,3 +13,5 @@ data/raw/nbs_yearbook_2025/*.jpg
 data/raw/nbs_communique/*.html
 data/raw/census2020/*.html
 data/raw/nbs_yearbook_2025/left.htm
+deployment/site/
+reports/acceptance/

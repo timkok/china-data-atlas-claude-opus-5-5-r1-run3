@@ -75,33 +75,33 @@ export default function RankingSection({ ind, series, initialYear }: { ind: Indi
             <option>全部</option>{REGION7.map((r) => <option key={r}>{r}</option>)}
           </select>
         </label>
-        <button data-testid="order-toggle" className="btn" onClick={() => setOrder(order === "desc" ? "asc" : "desc")} aria-label="切换排序方向">
+        <button data-testid="order-toggle" className="btn" onClick={() => setOrder(order === "desc" ? "asc" : "desc")}>
           {order === "desc" ? "降序 ↓（最高在前）" : "升序 ↑（最低在前）"}
         </button>
-        <span className="text-xs text-[--muted]">实际观测值 · 单位 {ind.unit} · 全国 {nat === null ? `${year}年无全国数据` : `${year}年 ${fmt(nat, ind.unit)}`}</span>
+        <span className="text-xs text-[var(--muted)]">实际观测值 · 单位 {ind.unit} · 全国 {nat === null ? `${year}年无全国数据` : `${year}年 ${fmt(nat, ind.unit)}`}</span>
       </div>
 
       {!yearHasData ? (
-        <div data-testid="no-data" className="rounded border border-dashed border-[--line] p-8 text-center text-sm">
+        <div data-testid="no-data" className="rounded border border-dashed border-[var(--line)] p-8 text-center text-sm">
           <p className="font-medium">{year}年官方数据库没有发布该指标的省级数据。</p>
-          <p className="text-[--muted] mt-1">本平台不插值、不估算，因此此处不显示任何数值。最近有省级数据的年份：{years[years.length - 1]}。</p>
+          <p className="text-[var(--muted)] mt-1">本平台不插值、不估算，因此此处不显示任何数值。最近有省级数据的年份：{years[years.length - 1]}。</p>
         </div>
       ) : (
         <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-6">
           <div>
             <EChart option={option} height={Math.max(260, shown.length * 20 + 40)} label={`${year}年${ind.name_zh}省级排名条形图`} onClickName={(n) => { const g = PROVINCES.find((p) => p.short_zh === n); if (g) setSelected(g.geo_code); }} />
-            {missing.length > 0 && <p className="text-xs text-[--muted] mt-2" data-testid="missing-list">无数据（不参与排名）：{missing.map((g) => GEO[g].short_zh).join("、")}</p>}
+            {missing.length > 0 && <p className="text-xs text-[var(--muted)] mt-2" data-testid="missing-list">无数据（不参与排名）：{missing.map((g) => GEO[g].short_zh).join("、")}</p>}
           </div>
           <div>
             {selRow && (
-              <div className="mb-3 rounded border border-[--line] bg-white p-3 text-sm" data-testid="selected-card" aria-live="polite">
+              <div className="mb-3 rounded border border-[var(--line)] bg-white p-3 text-sm" data-testid="selected-card" aria-live="polite">
                 <div className="flex justify-between"><b>{GEO[selRow.geo].name_zh} · {year}年</b><button className="text-xs underline" onClick={() => setSelected(null)}>关闭</button></div>
                 <div className="text-2xl font-semibold tabular-nums mt-1">{fmt(selRow.value, ind.unit)} <span className="text-sm font-normal">{ind.unit}</span></div>
-                <div className="text-xs text-[--muted] mt-1">第 {selRow.rank} 名 / {rows.length} · 数据状态：{statusCode?.[0] === "p" ? "初步" : "终值"} · 来源：国家统计局 {ind.source.province_table}</div>
+                <div className="text-xs text-[var(--muted)] mt-1">第 {selRow.rank} 名 / {rows.length} · 数据状态：{statusCode?.[0] === "p" ? "初步" : "终值"} · 来源：国家统计局 {ind.source.province_table}</div>
                 <a className="text-xs underline" href={`/regions/${selRow.geo}/`}>查看{GEO[selRow.geo].short_zh}全部指标 →</a>
               </div>
             )}
-            <div className="overflow-x-auto max-h-[640px] overflow-y-auto border border-[--line] rounded">
+            <div className="overflow-x-auto max-h-[640px] overflow-y-auto border border-[var(--line)] rounded">
               <table className="tbl" data-testid="ranking-table">
                 <caption className="sr-only">{year}年{ind.name_zh}省级排名</caption>
                 <thead><tr><th>名次</th><th>地区</th><th className="text-right">{year}年（{ind.unit}）</th>{nat !== null && <th className="text-right">与全国差</th>}<th className="text-right" title={prevYear ? `与${prevYear}年名次比较` : "无可比上一年"}>名次变化</th></tr></thead>
@@ -112,17 +112,17 @@ export default function RankingSection({ ind, series, initialYear }: { ind: Indi
                     return (
                       <tr key={r.geo} className={r.geo === selected ? "bg-orange-50" : ""} onClick={() => setSelected(r.geo)} style={{ cursor: "pointer" }}>
                         <td className="tabular-nums" data-rank={r.rank}>{r.rank}{tie ? "=" : ""}</td>
-                        <td><button className="underline-offset-2 hover:underline text-left" onClick={() => setSelected(r.geo)}>{GEO[r.geo].short_zh}</button> <span className="text-[10px] text-[--muted]">{GEO[r.geo].region7}</span></td>
+                        <td><button className="underline-offset-2 hover:underline text-left" onClick={() => setSelected(r.geo)}>{GEO[r.geo].short_zh}</button> <span className="text-[10px] text-[var(--muted)]">{GEO[r.geo].region7}</span></td>
                         <td className="text-right tabular-nums" data-value={r.value}>{fmt(r.value, ind.unit)}</td>
-                        {nat !== null && <td className={`text-right tabular-nums ${r.value - nat >= 0 ? "" : "text-[--muted]"}`}>{(r.value - nat >= 0 ? "+" : "") + fmt(r.value - nat, ind.unit)}</td>}
-                        <td className="text-right tabular-nums text-xs">{d === null ? <span className="text-[--muted]">—</span> : d > 0 ? <span style={{ color: "#15803d" }}>↑{d}</span> : d < 0 ? <span style={{ color: "#b91c1c" }}>↓{-d}</span> : "–"}</td>
+                        {nat !== null && <td className={`text-right tabular-nums ${r.value - nat >= 0 ? "" : "text-[var(--muted)]"}`}>{(r.value - nat >= 0 ? "+" : "") + fmt(r.value - nat, ind.unit)}</td>}
+                        <td className="text-right tabular-nums text-xs">{d === null ? <span className="text-[var(--muted)]">—</span> : d > 0 ? <span style={{ color: "#15803d" }}>↑{d}</span> : d < 0 ? <span style={{ color: "#b91c1c" }}>↓{-d}</span> : "–"}</td>
                       </tr>
                     );
                   })}
                 </tbody>
               </table>
             </div>
-            <p className="text-[11px] text-[--muted] mt-2">并列名次采用“1,2,2,4”竞争排名，以“=”标示。名次变化仅在上一年31省数据完整时计算。</p>
+            <p className="text-[11px] text-[var(--muted)] mt-2">并列名次采用“1,2,2,4”竞争排名，以“=”标示。名次变化仅在上一年31省数据完整时计算。</p>
           </div>
         </div>
       )}
@@ -134,16 +134,16 @@ export default function RankingSection({ ind, series, initialYear }: { ind: Indi
 function RegionMatrix({ ind, series, year, min, max, onPick, selected }: { ind: Indicator; series: SeriesFile; year: number; min: number; max: number; onPick: (g: string) => void; selected: string | null }) {
   return (
     <div className="mt-8" data-testid="region-matrix">
-      <h3 className="text-base font-semibold">地区矩阵 <span className="text-xs font-normal text-[--muted]">按七大地区分组的示意矩阵，不是地图，不表示任何地理边界</span></h3>
+      <h3 className="text-base font-semibold">地区矩阵 <span className="text-xs font-normal text-[var(--muted)]">按七大地区分组的示意矩阵，不是地图，不表示任何地理边界</span></h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-3">
         {REGION7.map((r) => (
-          <div key={r} className="border border-[--line] rounded p-2">
-            <div className="text-xs text-[--muted] mb-1">{r}</div>
+          <div key={r} className="border border-[var(--line)] rounded p-2">
+            <div className="text-xs text-[var(--muted)] mb-1">{r}</div>
             <div className="flex flex-wrap gap-1">
               {PROVINCES.filter((p) => p.region7 === r).map((p) => {
                 const v = series.matrix[p.geo_code]?.[String(year)] ?? null;
                 const bg = v === null ? "repeating-linear-gradient(45deg,#f3f4f6,#f3f4f6 4px,#e5e7eb 4px,#e5e7eb 8px)" : seqColor(v, min, max);
-                const dark = v !== null && (v - min) / (max - min || 1) > 0.6;
+                const dark = v !== null && (v - min) / (max - min || 1) >= 4 / 7;
                 return (
                   <button key={p.geo_code} onClick={() => onPick(p.geo_code)} title={`${p.name_zh} ${year}年 ${v === null ? "无数据" : fmt(v, ind.unit) + " " + ind.unit}`}
                     className={`w-[74px] h-[46px] rounded text-left px-1.5 py-1 ${selected === p.geo_code ? "ring-2 ring-orange-600" : ""}`} style={{ background: bg, color: dark ? "#fff" : "#1f2933" }}>
@@ -156,7 +156,7 @@ function RegionMatrix({ ind, series, year, min, max, onPick, selected }: { ind: 
           </div>
         ))}
       </div>
-      <p className="text-[11px] text-[--muted] mt-2">颜色：按{year}年31省最小值到最大值等距分为7级，越深数值越高（不代表好坏）。斜纹 = 无数据。</p>
+      <p className="text-[11px] text-[var(--muted)] mt-2">颜色：按{year}年31省最小值到最大值等距分为7级，越深数值越高（不代表好坏）。斜纹 = 无数据。</p>
     </div>
   );
 }

@@ -44,19 +44,19 @@ export default function RegionalSection({ ind, series, pop, initialYear }: { ind
       <div className="flex flex-wrap gap-3 items-end mb-3">
         <label className="text-sm">年份<select data-testid="regional-year" className="ctl ml-2" value={year} onChange={(e) => setYear(Number(e.target.value))}>{[...years].reverse().map((y) => <option key={y}>{y}</option>)}</select></label>
       </div>
-      <p className="text-xs text-[--muted] mb-2" data-testid="agg-rule">汇总规则：{AGG_NOTE[ind.agg]}</p>
+      <p className="text-xs text-[var(--muted)] mb-2" data-testid="agg-rule">汇总规则：{AGG_NOTE[ind.agg]}</p>
       <div className="overflow-x-auto">
         <table className="tbl" data-testid="regional-table">
           <caption className="sr-only">七大地区比较</caption>
           <thead><tr><th>地区</th><th>包含省份</th>{ind.agg !== "none" && <th className="text-right">地区汇总</th>}<th className="text-right">区内最低</th><th className="text-right">区内中位数</th><th className="text-right">区内最高</th></tr></thead>
           <tbody>{rows.map((r) => (
-            <tr key={r.region}><td className="font-medium">{r.region}</td><td className="text-xs text-[--muted]">{r.members}</td>
-              {ind.agg !== "none" && <td className="text-right tabular-nums">{r.value === null ? <span className="text-[--muted]" title="区内有省份缺数据，不生成汇总">不完整</span> : fmt(r.value, ind.unit)}</td>}
+            <tr key={r.region}><td className="font-medium">{r.region}</td><td className="text-xs text-[var(--muted)]">{r.members}</td>
+              {ind.agg !== "none" && <td className="text-right tabular-nums">{r.value === null ? <span className="text-[var(--muted)]" title="区内有省份缺数据，不生成汇总">不完整</span> : fmt(r.value, ind.unit)}</td>}
               <td className="text-right tabular-nums">{fmt(r.min, ind.unit)}</td><td className="text-right tabular-nums">{fmt(r.median, ind.unit)}</td><td className="text-right tabular-nums">{fmt(r.max, ind.unit)}</td></tr>
           ))}</tbody>
         </table>
       </div>
-      <p className="text-[11px] text-[--muted] mt-1">七大地区为常用地理分区（华北、东北、华东、华中、华南、西南、西北），用于展示便利，不是官方统计分组；国家统计局官方使用东部、中部、西部、东北四大区域。单位：{ind.unit}。</p>
+      <p className="text-[11px] text-[var(--muted)] mt-1">七大地区为常用地理分区（华北、东北、华东、华中、华南、西南、西北），用于展示便利，不是官方统计分组；国家统计局官方使用东部、中部、西部、东北四大区域。单位：{ind.unit}。</p>
       <h3 className="text-base font-semibold mt-6">多省比较（{year}年）</h3>
       <div className="flex flex-wrap gap-1 my-2" data-testid="compare-picker">
         {PROVINCES.map((p) => <button key={p.geo_code} aria-pressed={picked.includes(p.geo_code)} className={`chip ${picked.includes(p.geo_code) ? "chip-on" : ""}`} onClick={() => setPicked((c) => c.includes(p.geo_code) ? c.filter((x) => x !== p.geo_code) : [...c, p.geo_code].slice(-8))}>{p.short_zh}</button>)}

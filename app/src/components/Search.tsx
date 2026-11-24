@@ -35,17 +35,17 @@ export default function Search({ autoFocus = false, compact = false }: { autoFoc
         }}
         role="combobox" aria-expanded={results.length > 0} aria-controls="search-results" aria-activedescendant={results[active] ? `sr-${active}` : undefined}
         placeholder={compact ? "搜索指标或省份" : "搜索指标或省份，例如：人口、人均GDP、医生、广东"}
-        className={`w-full border border-[--line] bg-white rounded-md ${compact ? "px-3 py-1.5 text-sm" : "px-4 py-3 text-base"} focus:outline-none focus:ring-2 focus:ring-[--accent]`} />
+        className={`w-full border border-[var(--line)] bg-white rounded-md ${compact ? "px-3 py-1.5 text-sm" : "px-4 py-3 text-base"} focus:outline-none focus:ring-2 focus:ring-[var(--accent)]`} />
       {results.length > 0 && (
-        <ul id="search-results" role="listbox" className="absolute z-40 left-0 right-0 mt-1 bg-white border border-[--line] rounded-md shadow-lg overflow-hidden" data-testid="search-results">
+        <ul id="search-results" role="listbox" className="absolute z-40 left-0 right-0 mt-1 bg-white border border-[var(--line)] rounded-md shadow-lg overflow-hidden" data-testid="search-results">
           {results.map((r, i) => (
             <li key={r.href} id={`sr-${i}`} role="option" aria-selected={i === active}>
-              <a href={r.href} className={`flex justify-between px-3 py-2 text-sm ${i === active ? "bg-[--paper]" : ""}`}>{r.label}<span className="text-xs text-[--muted]">{r.sub}</span></a>
+              <a href={r.href} className={`flex justify-between px-3 py-2 text-sm ${i === active ? "bg-[var(--paper)]" : ""}`}>{r.label}<span className="text-xs text-[var(--muted)]">{r.sub}</span></a>
             </li>
           ))}
         </ul>
       )}
-      {q.trim() && results.length === 0 && <p className="absolute mt-1 text-xs text-[--muted] bg-white px-2">无匹配结果。当前收录 {INDICATORS.length} 个指标、31 个省级行政区。</p>}
+      {q.trim() && results.length === 0 && <p className="absolute mt-1 text-xs text-[var(--muted)] bg-white px-2">无匹配结果。当前收录 {INDICATORS.length} 个指标、31 个省级行政区。</p>}
     </div>
   );
 }

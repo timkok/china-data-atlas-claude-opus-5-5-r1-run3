@@ -38,10 +38,10 @@ export default async function IndicatorPage({ params }: { params: Promise<{ id: 
   const cite = citation(ind, ind.source.retrieved_at);
   return (
     <article className="wrap pt-6">
-      <nav aria-label="面包屑" className="text-xs text-[--muted]"><a href="/">首页</a> / <a href={`/indicators/#${cat.id}`}>{cat.zh}</a> / {ind.name_zh}</nav>
+      <nav aria-label="面包屑" className="text-xs text-[var(--muted)]"><a href="/">首页</a> / <a href={`/indicators/#${cat.id}`}>{cat.zh}</a> / {ind.name_zh}</nav>
       <header className="mt-2 mb-4">
         <h1 className="text-2xl sm:text-3xl font-bold">{ind.name_zh}</h1>
-        <p className="text-sm text-[--muted]">{ind.name_en} · 单位：{ind.unit} · {ind.core ? "12项核心指标之一" : "扩展指标（不计入12项核心指标）"}</p>
+        <p className="text-sm text-[var(--muted)]">{ind.name_en} · 单位：{ind.unit} · {ind.core ? "12项核心指标之一" : "扩展指标（不计入12项核心指标）"}</p>
         <nav aria-label="页内导航" className="flex gap-3 text-sm mt-3 overflow-x-auto whitespace-nowrap pb-1">
           <a href="#summary">概览</a><a href="#map">地区分布</a><a href="#rankings">排名</a><a href="#trend">历史趋势</a><a href="#regional">地区比较</a><a href="#data">数据表</a><a href="#methodology">方法与来源</a>
         </nav>
@@ -50,26 +50,26 @@ export default async function IndicatorPage({ params }: { params: Promise<{ id: 
       <section id="summary" className="sec" aria-labelledby="h-sum">
         <h2 id="h-sum">A. 概览</h2>
         <div className="grid md:grid-cols-[2fr_3fr] gap-6 mt-3">
-          <div className="bg-white border border-[--line] rounded-lg p-4">
-            <div className="text-xs text-[--muted]">全国 · {ind.latest_national_year}年 <span className="ml-1 px-1 rounded bg-[--paper]">实际数值</span></div>
+          <div className="bg-white border border-[var(--line)] rounded-lg p-4">
+            <div className="text-xs text-[var(--muted)]">全国 · {ind.latest_national_year}年 <span className="ml-1 px-1 rounded bg-[var(--paper)]">实际数值</span></div>
             <div className="text-4xl font-bold tabular-nums mt-1" data-testid="national-latest">{fmt(ind.national_latest, ind.unit)} <span className="text-base font-normal">{ind.unit}</span></div>
             <div className="text-sm mt-1" data-testid="yoy">
-              {yoy !== null ? <>比上年{yoy >= 0 ? (isRate ? "提高" : "增加") : (isRate ? "下降" : "减少")} {fmt(Math.abs(yoy), ind.unit)} {ind.unit === "%" ? "个百分点" : ind.unit === "‰" ? "个千分点" : ind.unit}{!isRate && ind.national_prev ? `（${((ind.national_latest! / ind.national_prev - 1) * 100).toFixed(1)}%，名义）` : ""}<span className="text-[11px] text-[--muted]"> · 衍生计算</span></> : <span className="text-[--muted]">{yoyBreak ? "该年存在口径变化，不计算同比" : "无可比上一年数据，不计算同比"}</span>}
+              {yoy !== null ? <>比上年{yoy >= 0 ? (isRate ? "提高" : "增加") : (isRate ? "下降" : "减少")} {fmt(Math.abs(yoy), ind.unit)} {ind.unit === "%" ? "个百分点" : ind.unit === "‰" ? "个千分点" : ind.unit}{!isRate && ind.national_prev ? `（${((ind.national_latest! / ind.national_prev - 1) * 100).toFixed(1)}%，名义）` : ""}<span className="text-[11px] text-[var(--muted)]"> · 衍生计算</span></> : <span className="text-[var(--muted)]">{yoyBreak ? "该年存在口径变化，不计算同比" : "无可比上一年数据，不计算同比"}</span>}
             </div>
             <dl className="grid grid-cols-2 gap-2 mt-4 text-sm">
-              <div><dt className="text-xs text-[--muted]">最新全国数据年份</dt><dd className="font-semibold">{ind.latest_national_year}</dd></div>
-              <div><dt className="text-xs text-[--muted]">最新省级数据年份</dt><dd className="font-semibold" data-testid="latest-prov-year">{ind.latest_province_year}</dd></div>
-              <div><dt className="text-xs text-[--muted]">最新年省级覆盖</dt><dd className="font-semibold">{Math.round(ind.latest_province_coverage * 31)} / 31</dd></div>
-              <div><dt className="text-xs text-[--muted]">年份范围</dt><dd className="font-semibold">{ind.first_year}—{ind.latest_province_year}</dd></div>
+              <div><dt className="text-xs text-[var(--muted)]">最新全国数据年份</dt><dd className="font-semibold">{ind.latest_national_year}</dd></div>
+              <div><dt className="text-xs text-[var(--muted)]">最新省级数据年份</dt><dd className="font-semibold" data-testid="latest-prov-year">{ind.latest_province_year}</dd></div>
+              <div><dt className="text-xs text-[var(--muted)]">最新年省级覆盖</dt><dd className="font-semibold">{Math.round(ind.latest_province_coverage * 31)} / 31</dd></div>
+              <div><dt className="text-xs text-[var(--muted)]">年份范围</dt><dd className="font-semibold">{ind.first_year}—{ind.latest_province_year}</dd></div>
             </dl>
             {(id === "gdp" || id === "gdp_per_capita") && <p className="text-[11px] text-amber-800 mt-3">{ind.latest_province_year}年数据为初步核算数，现价（名义）口径，不是实际增长。</p>}
           </div>
           <div>
             <h3 className="font-semibold">定义</h3>
             <p className="text-sm mt-1">{ind.definition_zh}</p>
-            <p className="text-xs text-[--muted] mt-1">官方指标名称：{ind.official_name_zh}</p>
-            <h3 className="font-semibold mt-4">关键发现 <span className="text-xs font-normal text-[--muted]">（由数据自动计算）</span></h3>
-            <ul className="text-sm mt-1 space-y-1 list-disc pl-5" data-testid="findings">{ind.findings.map((f, i) => <li key={i}>{f.zh}{f.type === "calculation" && <span className="text-[10px] text-[--muted]"> [计算]</span>}</li>)}</ul>
+            <p className="text-xs text-[var(--muted)] mt-1">官方指标名称：{ind.official_name_zh}</p>
+            <h3 className="font-semibold mt-4">关键发现 <span className="text-xs font-normal text-[var(--muted)]">（由数据自动计算）</span></h3>
+            <ul className="text-sm mt-1 space-y-1 list-disc pl-5" data-testid="findings">{ind.findings.map((f, i) => <li key={i}>{f.zh}{f.type === "calculation" && <span className="text-[10px] text-[var(--muted)]"> [计算]</span>}</li>)}</ul>
             <p className="text-sm mt-3">{ind.latest_province_year}年排名前三：{top3.map((r) => `${GEO[r.geo].short_zh} ${fmt(r.value, ind.unit)}`).join("、")}（{ind.unit}）。</p>
           </div>
         </div>
@@ -78,13 +78,13 @@ export default async function IndicatorPage({ params }: { params: Promise<{ id: 
       <section id="map" className="sec" aria-labelledby="h-map">
         <span id="rankings" className="block -mt-16 pt-16" aria-hidden />
         <h2 id="h-map">B. 地区分布与 D. 排名</h2>
-        <p className="text-xs text-[--muted] mb-4">出于地图合规考虑（需审图号的标准底图，未能确认可合法用于交互着色的省界数据），本平台不绘制地理地图，改用排序条形图、排名表与按七大地区分组的地区矩阵。<a className="underline" href="/methodology/#map">说明</a></p>
+        <p className="text-xs text-[var(--muted)] mb-4">出于地图合规考虑（需审图号的标准底图，未能确认可合法用于交互着色的省界数据），本平台不绘制地理地图，改用排序条形图、排名表与按七大地区分组的地区矩阵。<a className="underline" href="/methodology/#map">说明</a></p>
         <RankingSection ind={ind} series={series} initialYear={ind.latest_province_year} />
       </section>
 
       <section id="trend" className="sec" aria-labelledby="h-trend">
         <h2 id="h-trend">C. 历史趋势</h2>
-        <p className="text-xs text-[--muted] mb-3">默认比较广东、江苏、浙江与全国；可选择任意省份与年份范围。</p>
+        <p className="text-xs text-[var(--muted)] mb-3">默认比较广东、江苏、浙江与全国；可选择任意省份与年份范围。</p>
         <TrendSection ind={ind} series={series} />
       </section>
 
@@ -95,7 +95,7 @@ export default async function IndicatorPage({ params }: { params: Promise<{ id: 
 
       <section id="data" className="sec" aria-labelledby="h-data">
         <h2 id="h-data">F. 数据表与下载</h2>
-        <p className="text-xs text-[--muted] mb-3">下载的 CSV 与当前筛选结果逐行一致。字段说明见 <a className="underline" href="/methodology/#dictionary">数据字典</a>。</p>
+        <p className="text-xs text-[var(--muted)] mb-3">下载的 CSV 与当前筛选结果逐行一致。字段说明见 <a className="underline" href="/methodology/#dictionary">数据字典</a>。</p>
         <DataTable initialIndicators={[id]} initialSeries={{ [id]: series }} />
       </section>
 
@@ -117,7 +117,7 @@ export default async function IndicatorPage({ params }: { params: Promise<{ id: 
           <div>
             <h3 className="font-semibold">口径变化与修订</h3>
             {breaks.length ? <ul className="list-disc pl-5 mt-1">{breaks.map((b) => <li key={b.year}>{b.year}年：{b.note}</li>)}</ul> : <p className="mt-1">未发现需要标注的口径断点。</p>}
-            <p className="mt-1 text-xs text-[--muted]">本平台始终使用官方数据库当前发布的版本；与早期出版物不一致时以修订后数据为准，并在核验记录中注明。</p>
+            <p className="mt-1 text-xs text-[var(--muted)]">本平台始终使用官方数据库当前发布的版本；与早期出版物不一致时以修订后数据为准，并在核验记录中注明。</p>
             <h3 className="font-semibold mt-4">质量与覆盖</h3>
             <p className="mt-1">有效观测值 {ind.valid_observations} 个；最新年省级覆盖 {Math.round(ind.latest_province_coverage * 31)}/31；2015年以来31省完整年份比例 {(ind.continuity_since_2015 * 100).toFixed(0)}%。<a className="underline" href="/downloads/coverage_matrix.csv">覆盖率矩阵</a></p>
             <h3 className="font-semibold mt-4">已知局限</h3>
@@ -130,12 +130,12 @@ export default async function IndicatorPage({ params }: { params: Promise<{ id: 
               {id === "higher_education_students" && <li>原始单位为万人（两位小数），换算为人后存在最多±50人的舍入误差。</li>}
             </ul>
             <h3 className="font-semibold mt-4">推荐引用</h3>
-            <p className="mt-1 text-xs bg-white border border-[--line] rounded p-2" data-testid="citation">{cite}</p>
+            <p className="mt-1 text-xs bg-white border border-[var(--line)] rounded p-2" data-testid="citation">{cite}</p>
             <CopyButton text={cite} />
           </div>
         </div>
         {related.length > 0 && <div className="mt-6 text-sm"><h3 className="font-semibold">相关指标</h3><div className="flex flex-wrap gap-2 mt-2">{related.map((r) => <a key={r.id} className="chip" href={`/indicators/${r.id}/`}>{r.name_zh}</a>)}</div></div>}
-        <p className="text-[11px] text-[--muted] mt-4">数据版本：方法 {SITE.methodology_version} · 获取 {SITE.generated_at}</p>
+        <p className="text-[11px] text-[var(--muted)] mt-4">数据版本：方法 {SITE.methodology_version} · 获取 {SITE.generated_at}</p>
       </section>
     </article>
   );

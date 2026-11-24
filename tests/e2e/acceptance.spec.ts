@@ -139,6 +139,7 @@ test("Task H: mobile search, year switch, source view @mobile", async ({ page },
   await page.getByTestId("site-search").first().fill("出生");
   await page.getByTestId("search-results").getByRole("link").first().click();
   await expect(page).toHaveURL(/birth_rate/);
+  await page.waitForLoadState("networkidle"); // interactive controls work only after hydration
   await page.getByTestId("year-select").selectOption("2020");
   await expect(page.getByTestId("ranking-table").locator("tbody tr").first()).toBeVisible();
   await page.getByTestId("source-btn").first().click();
