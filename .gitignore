@@ -1,0 +1,15 @@
+node_modules/
+app/.next/
+app/out/
+app/test-results/
+app/playwright-report/
+__pycache__/
+.pytest_cache/
+.vercel
+.DS_Store
+*.zip
+# Copyrighted publication copies kept only as local evidence (see LIMITATIONS.md / data/raw/README.md)
+data/raw/nbs_yearbook_2025/*.jpg
+data/raw/nbs_communique/*.html
+data/raw/census2020/*.html
+data/raw/nbs_yearbook_2025/left.htm
