@@ -1,0 +1,11 @@
+{
+ "task": "G",
+ "environment": "local static build",
+ "result": "Pass",
+ "steps": "数据浏览器→加选“人均地区生产总值”→地区选华东→年份2023—2025→下载CSV",
+ "clicks": 5,
+ "data_year": "2023—2025",
+ "verification": "CSV 42行；页面每一行的值与CSV及 observations.csv 完全一致",
+ "evidence": "screenshots/acceptance-G.png",
+ "failure_reason": ""
+}

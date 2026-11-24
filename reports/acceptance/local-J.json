@@ -1,0 +1,11 @@
+{
+ "task": "J",
+ "environment": "local static build",
+ "result": "Pass",
+ "steps": "任一指标页数据表→点“查看来源”→弹窗显示机构、数据库、表格路径、原始单位、转换、接口定位（cid/指标ID/地区代码/年份）及官方查询页链接",
+ "clicks": 2,
+ "data_year": "2025",
+ "verification": "按表格路径在 data.stats.gov.cn 分省年度数据可定位同一数值；接口定位可由 pipeline 原样重放（原始响应保存在 data/raw/nbs_api_cache）",
+ "evidence": "screenshots/acceptance-J.png",
+ "failure_reason": ""
+}

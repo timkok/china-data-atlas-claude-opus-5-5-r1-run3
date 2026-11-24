@@ -1,0 +1,25 @@
+field,type,description
+indicator_id,string,"Indicator key, see indicators.csv"
+indicator_name_zh,string,Chinese name
+indicator_name_en,string,English name
+geo_code,string,6-digit GB/T 2260 province code; 000000 = national total
+geo_name_zh,string,
+geo_name_en,string,
+geo_level,enum,national | province
+year,int,"Statistical (reference) year, not publication year"
+value,number|empty,Machine-readable value in `unit`; empty = missing in official source (never 0)
+unit,string,Standard unit
+source_id,string,See sources.csv prefix
+source_agency,string,
+source_url,url,Official page where the value can be looked up
+source_table,string,Official table path / name
+source_locator,string,"API cid / indicator ids / region code / year, or table row/column"
+publication_date,date|empty,ISO date when known; empty when the database does not state it
+retrieved_at,datetime,ISO 8601 UTC retrieval time
+data_status,enum,final | preliminary | revised | unknown
+methodology_version,string,config/indicators.json version
+transformation,string,Formula applied to original values (v = original value)
+verification_status,enum,"verified (individually checked against independent official publication) | partially_verified (indicator passed >=5 independent sample checks, none unexplained) | unverified"
+notes,string,
+original_value,string,"Original value(s) before transformation, key=value"
+original_unit,string,Unit in the source

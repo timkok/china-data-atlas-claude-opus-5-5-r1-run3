@@ -1,0 +1,11 @@
+{
+ "task": "A",
+ "environment": "local static build",
+ "result": "Pass",
+ "steps": "首页搜索框输入“广东”→点击“广东省”→地区页“年末常住人口”行显示数值与年份→点击“国家统计局↗”打开官方分省年度数据查询页",
+ "clicks": 2,
+ "data_year": "2025",
+ "verification": "显示 12859 万人 = observations.csv；与2024年值12780核对年鉴2025表2-5一致（核验样本）",
+ "evidence": "screenshots/acceptance-A.png",
+ "failure_reason": ""
+}

@@ -1,0 +1,11 @@
+{
+ "task": "B",
+ "environment": "local static build",
+ "result": "Pass",
+ "steps": "打开“年末常住人口”→历史趋势默认比较广东、江苏、浙江与全国→起始年选2015",
+ "clicks": 2,
+ "data_year": "2015—2025",
+ "verification": "趋势表首末年数值与 observations.csv 一致；默认省份组合即为任务所需",
+ "evidence": "screenshots/acceptance-B.png",
+ "failure_reason": ""
+}
