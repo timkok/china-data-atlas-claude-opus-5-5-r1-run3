@@ -13,3 +13,4 @@ C02-01 C02-04 C02-05 C02-06 C02-07 C02-11 C03-09 C06-18 C15-12 C21-14 C21-15 C22
 communiqué https://www.stats.gov.cn/sj/zxfb/202602/t20260228_1962662.html;
 GDP final verification https://www.stats.gov.cn/sj/zxfb/202512/t20251226_1962144.html;
 census bulletin 5 https://www.stats.gov.cn/sj/zxfb/202302/t20230203_1901085.html (save as census2020/bulletin5.html).
+| provincial_communique/*.html | Beijing / Zhejiang / Shandong 2025 statistical communiqués (official bureau sites) used for verification; Henan site returned HTTP 403 → not used | **no** (local evidence / Drive only) |

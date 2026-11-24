@@ -3,8 +3,8 @@
  "rows": 11104,
  "unique_valid_observations": 10416,
  "missing_rows": 688,
- "verified_observations": 72,
- "partially_verified_observations": 7085,
+ "verified_observations": 78,
+ "partially_verified_observations": 7911,
  "errors": 0,
  "warnings": 2,
  "checks": [

@@ -3715,8 +3715,8 @@
 ],
 "stats": {
 "unique_valid_observations": 10416,
-"verified_observations": 72,
-"partially_verified_observations": 7085,
+"verified_observations": 78,
+"partially_verified_observations": 7911,
 "core_indicators": 12,
 "extension_indicators": 2,
 "regions": 31,
